@@ -24,16 +24,33 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Start from top */
+    align-items: center;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+label {
+    text-align: center;
 }
 
 /* Header */
 .app-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    background-color: #FF8C00;
+    /* Solid Orange Header */
+    width: 100%;
+    /* Full Width */
     color: var(--white);
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem 3rem;
+    /* Extra padding at bottom */
     text-align: center;
-    box-shadow: 0 4px 12px rgba(247, 148, 29, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    /* Space below header */
 }
 
 .app-logo {
@@ -49,7 +66,8 @@ body {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    /* Larger Title */
     margin-bottom: 0.25rem;
 }
 
@@ -67,7 +85,8 @@ body {
     flex-direction: column;
     padding: 1rem;
     gap: 1.5rem;
-    max-width: 800px;
+    gap: 1.5rem;
+    max-width: 600px;
     margin: 0 auto;
     width: 100%;
 }
@@ -92,6 +111,10 @@ body {
     flex-direction: column;
     align-items: center;
     border-top: 6px solid var(--primary-color);
+}
+
+.team-card h2 {
+    color: inherit;
 }
 
 .away-team.team-card {
@@ -225,10 +248,11 @@ body {
 /* Log Section */
 .log-section {
     background: var(--white);
-    margin: 0 1rem 2rem;
     padding: 1.5rem;
     border-radius: var(--border-radius);
-    max-width: 800px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto 2rem;
     box-shadow: var(--shadow);
     align-self: center;
 }
@@ -316,8 +340,8 @@ body {
 
 /* Save Match Section */
 .save-match-section {
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    max-width: 600px;
+    margin: 20px auto 2rem;
     padding: 0 1rem;
     width: 100%;
     display: flex;
@@ -327,18 +351,24 @@ body {
 }
 
 .btn-save {
-    background-color: #f7941d;
-    /* Vibrant Orange */
+    background-color: #FF8C00;
+    /* Orange */
     color: var(--white);
     font-size: 1.2rem;
+    font-weight: 700;
+    /* Bold */
     padding: 1.25rem 2rem;
-    margin-top: 1rem;
-    box-shadow: 0 4px 6px rgba(247, 148, 29, 0.3);
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(255, 140, 0, 0.4);
+    /* Nice orange shadow */
 }
 
 .btn-save:hover {
-    background-color: #e68a19;
+    background-color: #e67e00;
+    /* Slightly darker orange */
     transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(255, 140, 0, 0.5);
 }
 
 /* Stats Section */
@@ -517,7 +547,9 @@ body {
     100% {
         transform: scale(1);
     }
-}/* Goal Form Section (Modal Overlay) */
+}
+
+/* Goal Form Section (Modal Overlay) */
 .goal-form-section {
     position: fixed;
     top: 0;
@@ -650,4 +682,48 @@ body {
 
 .btn-confirm:hover {
     background-color: var(--primary-dark);
+}
+
+/* Match Config Section */
+.match-config {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--white);
+    margin: 1rem auto;
+    max-width: 800px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+}
+
+.config-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+.config-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.config-group input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.config-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
 }

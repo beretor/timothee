@@ -14,15 +14,26 @@
 <body>
     <header class="app-header">
         <img src="assets/logo.png" alt="AHSG Logo" class="app-logo">
-        <h1>Asnières Hockey Club</h1>
-        <p class="subtitle">Scoreur</p>
+        <h1>Asnières Hockey sur Gazon</h1>
     </header>
+
+    <!-- Match Configuration -->
+    <section class="match-config">
+        <div class="config-group">
+            <label for="config-home-name">Équipe Domicile</label>
+            <input type="text" id="config-home-name" value="Asnières">
+        </div>
+        <div class="config-group">
+            <label for="config-away-name">Équipe Extérieure</label>
+            <input type="text" id="config-away-name" value="Adversaire">
+        </div>
+    </section>
 
     <main class="scoreboard">
         <!-- Home Team -->
         <section class="team-card home-team">
             <h2 class="team-name">Équipe Domicile</h2>
-            <div class="team-club">Asnières</div>
+            <div class="team-club" id="display-home-name">Asnières</div>
             <div class="score-display" id="score-home">0</div>
 
             <div class="controls">
@@ -41,10 +52,7 @@
         <!-- Away Team -->
         <section class="team-card away-team">
             <h2 class="team-name">Équipe Extérieure</h2>
-            <div class="team-club">
-                <input type="text" id="opponent-name" class="opponent-input" placeholder="Entrez le club adverse..."
-                    aria-label="Nom de l'adversaire">
-            </div>
+            <div class="team-club" id="display-away-name">Adversaire</div>
             <div class="score-display" id="score-away">0</div>
 
             <div class="controls">
@@ -57,6 +65,12 @@
             </div>
         </section>
     </main>
+
+    <section class="save-match-section">
+        <button class="btn btn-save" onclick="saveMatch()">
+            Enregistrer le match (Fin)
+        </button>
+    </section>
 
     <!-- Goal Detail Inline Form (Hidden by default) -->
     <section id="goal-form-section" class="goal-form-section hidden">
@@ -138,12 +152,15 @@
                             <th class="text-center" title="Nuls">N</th>
                             <th class="text-center" title="Défaites">D</th>
                             <th class="text-right">Pts</th>
+                            <th class="text-center" title="Buts Pour">BP</th>
+                            <th class="text-center" title="Buts Contre">BC</th>
+                            <th class="text-center" title="Différence">Diff</th>
                         </tr>
                     </thead>
                     <tbody id="team-stats-body">
                         <!-- Rows will be added here -->
                         <tr>
-                            <td colspan="6" class="empty-stats">Aucun match joué</td>
+                            <td colspan="9" class="empty-stats">Aucun match joué</td>
                         </tr>
                     </tbody>
                 </table>
@@ -159,11 +176,7 @@
         </ul>
     </section>
 
-    <section class="save-match-section">
-        <button class="btn btn-save" onclick="saveMatch()">
-            Enregistrer le match (Fin)
-        </button>
-    </section>
+
 
     <section class="history-section">
         <h3>Historique des matchs</h3>
